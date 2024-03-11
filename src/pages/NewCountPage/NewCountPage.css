@@ -1,0 +1,40 @@
+.new-count-page {
+  width: 100%;
+  background-color: var(--dark-blue);
+  padding: 1em;
+}
+
+.heart-button {
+  width: 40vw;
+  height: 40vw;
+  background-color: var(--pure-white);
+  color: var(--dark-blue);
+  font-size: 2em;
+  border-radius: 10em;
+  opacity: 0.8;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.heart-button:hover {
+  opacity: 1;
+  transform: scale(1.020);
+  cursor: pointer;
+  box-shadow: 0 0 1em rgba(255, 255, 255, 0.35);
+}
+
+.heart-button i {
+  font-size: 10em;
+}
+
+.heart-button p {
+  font-size: 1.5em;
+}
+
+.timer {
+  color: var(--pure-white);
+  font-size: 3em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}

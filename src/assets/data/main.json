@@ -1,0 +1,20 @@
+{
+  "application": {
+    "name": "Luna",
+    "tagline": "Pet Breath Monitor"
+  },
+
+  "homepage": {
+    "url": "/",
+    "btnNew": {
+      "txt": "Νέα Μέτρηση",
+      "url": "/new",
+      "icon": "bi bi-plus-circle"
+    },
+    "btnHistory": {
+      "txt": "Ιστορικό",
+      "url": "/history",
+      "icon": "bi bi-journal-text"
+    }
+  }
+}

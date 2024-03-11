@@ -1,0 +1,11 @@
+.home-page {
+    width: 100%;
+    background-color: var(--dark-blue);
+}
+
+.actions-header {
+    color: var(--pure-white);
+    font-size: 3em;
+    padding: 0 0 0 1em;
+    margin: 0;
+}

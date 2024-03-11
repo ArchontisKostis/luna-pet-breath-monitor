@@ -1,0 +1,36 @@
+.tile-button {
+    width: 30vw;
+    height: 20vw;
+    background-color: var(--pure-white);
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1em;
+    margin: 1em;
+    color: var(--dark-blue);
+    transition: all 0.3s ease;
+}
+
+.tile-button i {
+    font-size: 3em;
+}
+
+.tile-button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .tile-button {
+        width: 80vw;
+        height: 70vw;
+    }
+    .tile-button i {
+        font-size: 20vw;
+    }
+}
