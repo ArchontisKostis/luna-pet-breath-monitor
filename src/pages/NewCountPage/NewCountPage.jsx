@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Button, Col, Container, Modal, Row} from "react-bootstrap";
+import {Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
 import TileButton from "../../components/TileButton/TileButton.jsx";
 
 import './NewCountPage.css';
@@ -8,6 +8,8 @@ const COUNTDOWN_SECONDS = 10;
 
 const NewCountPage = () => {
     const [count, setCount] = useState(0);
+    const [finalCount, setFinalCount] = useState(0);
+
     const [timer, setTimer] = useState(COUNTDOWN_SECONDS);
     const [today, setToday] = useState(new Date());
     const [startedCounting, setStartedCounting] = useState(false);
@@ -39,28 +41,29 @@ const NewCountPage = () => {
     }
 
     useEffect(() => {
+        let intervalId;
+
         if (startedCounting) {
-            const intervalId = setInterval(() => {
-                // Decrease timer by 1 every second
+            intervalId = setInterval(() => {
                 setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
 
-                // Show alert when the countdown stops
                 if (timer < 1) {
-                    clearInterval(intervalId);
-
                     // Reset flags
-                    setCount(0);
                     setTimer(COUNTDOWN_SECONDS);
-                    setStartedCounting(false)
+                    setStartedCounting(false);
+
+                    setFinalCount(count);
+                    setCount(0);
 
                     handleShow();
                 }
             }, 1000);
-
-            // Clear interval when component is unmounted
-            return () => clearInterval(intervalId);
         }
-    }, [startedCounting]); // Include count and timer in the dependency array
+
+        // Clear interval when component is unmounted or when counting is stopped
+        return () => clearInterval(intervalId);
+    }, [startedCounting, timer]);
+
 
     return (
         <div className="new-count-page">
@@ -82,9 +85,17 @@ const NewCountPage = () => {
                 </Modal.Header>
                 <Modal.Body>
                     Η χρονομέτρηση τελείωσε. <br/>
-                    Ο αριθμός των αναπνοών του κατοικίδιου είναι: <b>{count}</b>.
+                    Αριθμός αναπνοών κατοικίδιου: <b>{finalCount}</b> <i>ανά {COUNTDOWN_SECONDS} δευτερόλεπτα.</i> <br/>
+                    Ημερομηνία: <b>{today.toLocaleDateString()}</b> <br/> <br/>
+                    <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Σημειώσεις:</Form.Label>
+                            <Form.Control as="textarea" rows={3} />
+                        </Form.Group>
+                    </Form>
+
                     <br/> <br/>
-                    <i>
+                    <i className="new-count-modal-info">
                         Επιλέξτε "Αποθήκευση" για να αποθηκεύσετε την μέτρηση ή "Ακύρωση" για να την ακυρώσετε.
                     </i>
                 </Modal.Body>
