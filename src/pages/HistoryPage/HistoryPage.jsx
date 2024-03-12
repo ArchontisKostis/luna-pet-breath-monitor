@@ -23,6 +23,11 @@ const CountHistoryPage = () => {
                             item={item}
                         />
                     ))}
+
+                    <Button variant="success" onClick={() => window.location.href = "/new"}>
+                        <i className="bi bi-plus-lg"> </i>
+                        Νέα Μέτρηση
+                    </Button>
                 </div>
             ) : (
                 <Alert variant="warning">

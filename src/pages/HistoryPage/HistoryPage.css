@@ -12,12 +12,11 @@
     padding: 1em;
 }
 
-.history-card-header {
-    display: grid;
-    grid-template-columns: 5fr 1fr;
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-}
-
-.delete-modal {
-    width: 100vw;
+    flex-direction: column;
+    width: 100%;
 }
