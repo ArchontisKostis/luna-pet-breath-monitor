@@ -34,15 +34,13 @@ const NewCountPage = () => {
                 <i className="bi bi-clock"> </i>
                 {timer}
             </p>
-            <Container fluid className="d-flex justify-content-center align-items-center vh-100">
-                <Row>
-                    <button className="heart-button" onClick={handleClick}>
-                        <i className="bi bi-lungs-fill"></i>
+            <div className="breath-btn-container">
+                <button className="heart-button" onClick={handleClick}>
+                    <i className="bi bi-lungs-fill">
                         <p>{count}</p>
-                    </button>
-                </Row>
-                {/* Additional content can be added here */}
-            </Container>
+                    </i>
+                </button>
+            </div>
         </div>
     );
 };

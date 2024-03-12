@@ -10,24 +10,19 @@ import TileButton from "../../components/TileButton/TileButton.jsx";
 const HomePage = () => {
     return (
         <div className="home-page">
-            <Container fluid className="d-flex justify-content-center align-items-center vh-100">
-                <Row>
-                    <Col xs={12} md={6} className="d-flex justify-content-center">
-                        <TileButton
-                            icon={homepage.btnNew.icon}
-                            text={homepage.btnNew.txt}
-                            urlTo={homepage.btnNew.url}
-                        />
-                    </Col>
-                    <Col xs={12} md={6} className="d-flex justify-content-center">
-                        <TileButton
-                            icon={homepage.btnHistory.icon}
-                            text={homepage.btnHistory.txt}
-                            urlTo={homepage.btnHistory.url}
-                        />
-                    </Col>
-                </Row>
-            </Container>
+            <h2 className="actions-header">Ενέργειες</h2>
+            <div className='buttons-grid'>
+                <TileButton
+                    icon={homepage.btnNew.icon}
+                    text={homepage.btnNew.txt}
+                    urlTo={homepage.btnNew.url}
+                />
+                <TileButton
+                    icon={homepage.btnHistory.icon}
+                    text={homepage.btnHistory.txt}
+                    urlTo={homepage.btnHistory.url}
+                />
+            </div>
         </div>
     );
 };
