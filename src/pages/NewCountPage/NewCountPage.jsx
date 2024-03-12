@@ -3,8 +3,9 @@ import {Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
 import TileButton from "../../components/TileButton/TileButton.jsx";
 
 import './NewCountPage.css';
+import SaveCountModal from "../../components/SaveCountModal/SaveCountModal.jsx";
 
-const COUNTDOWN_SECONDS = 10;
+const COUNTDOWN_SECONDS = 60;
 
 const NewCountPage = () => {
     const [count, setCount] = useState(0);
@@ -79,35 +80,14 @@ const NewCountPage = () => {
                 </button>
             </div>
 
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Τέλος Χρονομέτρησης</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    Η χρονομέτρηση τελείωσε. <br/>
-                    Αριθμός αναπνοών κατοικίδιου: <b>{finalCount}</b> <i>ανά {COUNTDOWN_SECONDS} δευτερόλεπτα.</i> <br/>
-                    Ημερομηνία: <b>{today.toLocaleDateString()}</b> <br/> <br/>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Σημειώσεις:</Form.Label>
-                            <Form.Control as="textarea" rows={3} />
-                        </Form.Group>
-                    </Form>
-
-                    <br/> <br/>
-                    <i className="new-count-modal-info">
-                        Επιλέξτε "Αποθήκευση" για να αποθηκεύσετε την μέτρηση ή "Ακύρωση" για να την ακυρώσετε.
-                    </i>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="danger" onClick={handleClose}>
-                        Ακύρωση
-                    </Button>
-                    <Button variant="success" onClick={handleSave}>
-                        Αποθήκευση
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+            <SaveCountModal
+                show={show}
+                handleClose={handleClose}
+                finalCount={finalCount}
+                today={today}
+                handleSave={handleSave}
+                countdown={COUNTDOWN_SECONDS}
+            />
         </div>
     );
 };
