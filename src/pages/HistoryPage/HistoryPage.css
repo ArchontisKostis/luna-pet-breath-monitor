@@ -1,0 +1,12 @@
+.count-history-page {
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.count-history-page h1 {
+    color: var(--pure-white);
+    padding: 1em;
+}

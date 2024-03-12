@@ -14,7 +14,7 @@
     "btnHistory": {
       "txt": "Ιστορικό",
       "url": "/history",
-      "icon": "bi bi-journal-text"
+      "icon": "bi bi-clock-history"
     }
   }
 }

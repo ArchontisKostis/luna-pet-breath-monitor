@@ -2,6 +2,29 @@ import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 const SaveCountModal = ({ show, handleClose, finalCount, today, countdown }) => {
+    const handleSave = () => {
+        // Construct the data object
+        const data = {
+            date: today.toLocaleDateString(),
+            breathsCount: finalCount,
+            countdownTime: countdown,
+            notes: document.getElementById('notes').value, // Retrieve notes from the textarea
+        };
+
+        // Get existing history from local storage or initialize an empty array
+        const existingHistory = JSON.parse(localStorage.getItem('history')) || [];
+
+        // Add the new data to the history
+        existingHistory.push(data);
+
+        // Save the updated history back to local storage
+        localStorage.setItem('history', JSON.stringify(existingHistory));
+
+        // Close the modal
+        handleClose();
+    };
+
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -14,7 +37,7 @@ const SaveCountModal = ({ show, handleClose, finalCount, today, countdown }) => 
                 <Form>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Σημειώσεις:</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control as="textarea" rows={3} id="notes"/>
                     </Form.Group>
                 </Form>
 
@@ -27,7 +50,7 @@ const SaveCountModal = ({ show, handleClose, finalCount, today, countdown }) => 
                 <Button variant="danger" onClick={handleClose}>
                     Ακύρωση
                 </Button>
-                <Button variant="success" onClick={handleClose}>
+                <Button variant="success" onClick={handleSave}>
                     Αποθήκευση
                 </Button>
             </Modal.Footer>

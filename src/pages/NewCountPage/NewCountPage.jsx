@@ -5,7 +5,7 @@ import TileButton from "../../components/TileButton/TileButton.jsx";
 import './NewCountPage.css';
 import SaveCountModal from "../../components/SaveCountModal/SaveCountModal.jsx";
 
-const COUNTDOWN_SECONDS = 60;
+const COUNTDOWN_SECONDS = 10;
 
 const NewCountPage = () => {
     const [count, setCount] = useState(0);
