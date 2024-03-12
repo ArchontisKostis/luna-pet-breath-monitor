@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 
 import './HistoryPage.css';
+import TimelineChart from "../../components/TimelineChart/TimelineChart.jsx";
 
 const CountHistoryPage = () => {
     const [history, setHistory] = useState([]);
@@ -46,6 +47,8 @@ const CountHistoryPage = () => {
             ) : (
                 <p>No count history available.</p>
             )}
+
+            <TimelineChart />
         </div>
     );
 };
