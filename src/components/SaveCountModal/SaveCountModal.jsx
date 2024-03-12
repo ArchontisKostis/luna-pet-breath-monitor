@@ -3,16 +3,18 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 const SaveCountModal = ({ show, handleClose, finalCount, today, countdown }) => {
     const handleSave = () => {
+        // Get existing history from local storage or initialize an empty array
+        const existingHistory = JSON.parse(localStorage.getItem('history')) || [];
+        let id = existingHistory.length + 1;
+
         // Construct the data object
         const data = {
+            id: id,
             date: today.toLocaleDateString(),
             breathsCount: finalCount,
             countdownTime: countdown,
             notes: document.getElementById('notes').value, // Retrieve notes from the textarea
         };
-
-        // Get existing history from local storage or initialize an empty array
-        const existingHistory = JSON.parse(localStorage.getItem('history')) || [];
 
         // Add the new data to the history
         existingHistory.push(data);
@@ -47,7 +49,7 @@ const SaveCountModal = ({ show, handleClose, finalCount, today, countdown }) => 
                 </i>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="danger" onClick={handleClose}>
+                <Button variant="secondary" onClick={handleClose}>
                     Ακύρωση
                 </Button>
                 <Button variant="success" onClick={handleSave}>

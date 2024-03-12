@@ -5,13 +5,15 @@ import TileButton from "../../components/TileButton/TileButton.jsx";
 import './NewCountPage.css';
 import SaveCountModal from "../../components/SaveCountModal/SaveCountModal.jsx";
 
-const COUNTDOWN_SECONDS = 10;
+const COUNTDOWN_SECONDS = 60;
 
 const NewCountPage = () => {
     const [count, setCount] = useState(0);
     const [finalCount, setFinalCount] = useState(0);
 
     const [timer, setTimer] = useState(COUNTDOWN_SECONDS);
+    const [finalTimer, setFinalTimer] = useState(COUNTDOWN_SECONDS);
+
     const [today, setToday] = useState(new Date());
     const [startedCounting, setStartedCounting] = useState(false);
 
@@ -65,12 +67,35 @@ const NewCountPage = () => {
         return () => clearInterval(intervalId);
     }, [startedCounting, timer]);
 
+    let handleIncrement = () => {
+        let increment = timer + 1;
+
+        setTimer(increment);
+        setFinalTimer(increment);
+    }
+
+    let handleDecrement = () => {
+        let decrement = timer - 1;
+
+        setTimer(decrement);
+        setFinalTimer(decrement);
+    }
 
     return (
         <div className="new-count-page">
             <p className="timer">
                 <i className="bi bi-clock"> </i>
-                {timer}
+                <p>
+                    {timer}"
+                </p>
+
+                {/*<button className="time-btn" id="increment-timer" onClick={handleIncrement}>*/}
+                {/*    <i className="bi bi-caret-up-fill"> </i>*/}
+                {/*</button>*/}
+
+                {/*<button className="time-btn" id="decrease-timer" onClick={handleDecrement}>*/}
+                {/*    <i className="bi bi-caret-down-fill"> </i>*/}
+                {/*</button>*/}
             </p>
             <div className="breath-btn-container">
                 <button className="heart-button" onClick={handleCountClick}>
@@ -86,7 +111,7 @@ const NewCountPage = () => {
                 finalCount={finalCount}
                 today={today}
                 handleSave={handleSave}
-                countdown={COUNTDOWN_SECONDS}
+                countdown={finalTimer}
             />
         </div>
     );
