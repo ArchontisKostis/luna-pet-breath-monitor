@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 import './TimelineChart.css';
+import {Alert} from "react-bootstrap";
 
 const TimelineChart = () => {
     const [history, setHistory] = useState([]);
@@ -38,7 +39,15 @@ const TimelineChart = () => {
                     <Line type="monotone" dataKey="breathsCount" stroke="#01233e" strokeWidth={2} />
                 </LineChart>
             ) : (
-                <p>No count history available.</p>
+                <Alert variant="warning">
+                    <Alert.Heading>
+                        Δέν υπάρχουν μετρήσεις
+                    </Alert.Heading>
+                    <hr />
+                    <p className="mb-0">
+                        Προσθέστε μια νέα μέτρηση για να δείτε το γράφημα.
+                    </p>
+                </Alert>
             )}
         </div>
     );

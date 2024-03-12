@@ -4,9 +4,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 4em;
 }
 
 .count-history-page h1 {
     color: var(--pure-white);
     padding: 1em;
+}
+
+.history-card-header {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    align-items: center;
+}
+
+.delete-history-btn {
+    border-radius: 1em;
 }
