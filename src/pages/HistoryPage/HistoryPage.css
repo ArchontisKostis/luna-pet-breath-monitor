@@ -18,10 +18,6 @@
     align-items: center;
 }
 
-.delete-history-btn {
-    border-radius: 1em;
-}
-
 .delete-modal {
     width: 100vw;
 }

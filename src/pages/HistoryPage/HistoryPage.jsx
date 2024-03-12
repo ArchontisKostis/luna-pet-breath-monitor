@@ -3,38 +3,11 @@ import {Alert, Button, Card, Modal} from 'react-bootstrap';
 
 import './HistoryPage.css';
 import TimelineChart from "../../components/TimelineChart/TimelineChart.jsx";
+import CountHistoryCard from "../../components/CountHistoryCard/CountHistoryCard.jsx";
+import useLocalStorage from "../../hooks/useLocalStorage.js";
 
 const CountHistoryPage = () => {
-    const [history, setHistory] = useState([]);
-    const [selectedEntryIndex, setSelectedEntryIndex] = useState(null);
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = (index) => {
-        setShow(true);
-        setSelectedEntryIndex(index);
-    }
-
-    const handleDelete = () => {
-        if (selectedEntryIndex !== null) {
-            const updatedHistory = [...history];
-            updatedHistory.splice(selectedEntryIndex, 1);
-            setHistory(updatedHistory);
-
-            // Save updated history to local storage
-            localStorage.setItem('history', JSON.stringify(updatedHistory));
-
-            // Close the modal
-            handleClose();
-        }
-    };
-
-    useEffect(() => {
-        // Retrieve history from local storage
-        const storedHistory = JSON.parse(localStorage.getItem('history')) || [];
-        setHistory(storedHistory);
-    }, []);
+    const [history, setHistory] = useLocalStorage('history', []);
 
     return (
         <div className="count-history-page">
@@ -45,30 +18,10 @@ const CountHistoryPage = () => {
             {history.length > 0 ? (
                 <div className="cards-container">
                     {history.map((item, index) => (
-                        <Card key={index} style={{ width: '18rem', margin: '10px' }}>
-                            <Card.Body>
-                                <Card.Title className="history-card-header">
-                                    <b>{item.date}</b>
-
-                                    <Button variant="danger" className="delete-history-btn" onClick={handleShow}>
-                                        <i className="bi bi-trash"> </i>
-                                    </Button>
-                                </Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">
-                                    <i className="bi bi-lungs"> </i>
-                                    Αναπνοές: {item.breathsCount}
-                                </Card.Subtitle>
-                                <Card.Text>
-                                    <i className="bi bi-hourglass-split"> </i>
-                                    Χρόνος Μέτρησης: {item.countdownTime} " <br/>
-                                    <br />
-                                    <i className="bi bi-journal-text"> </i>
-                                    Σημειώσεις: <br/>
-
-                                    <i>{item.notes || 'No notes available'}</i>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
+                        <CountHistoryCard
+                            index={index}
+                            item={item}
+                        />
                     ))}
                 </div>
             ) : (
@@ -87,24 +40,7 @@ const CountHistoryPage = () => {
                 history={history}
             />
 
-            {/*  Delete Modal  */}
-            <Modal show={show} onHide={handleClose} className="delete-modal">
-                <Modal.Header closeButton>
-                    <Modal.Title>Διαγραφή Εγγραφής</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <b>Προσοχή!</b> <br/>
-                    Είστε σίγουρος ότι θέλετε να διαγράψετε την εγγραφή; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Άκυρο
-                    </Button>
-                    <Button variant="danger" onClick={handleDelete}>
-                        Διαγραφή
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+
         </div>
     );
 };
