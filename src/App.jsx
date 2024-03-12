@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import NewCountPage from "./pages/NewCountPage/NewCountPage.jsx";
 import HistoryPage from "./pages/HistoryPage/HistoryPage.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +28,8 @@ function App() {
               <Route path="/history" element={<HistoryPage />} />
           </Routes>
         </Wrapper>
+      <Footer />
+
     </Router>
   )
 }

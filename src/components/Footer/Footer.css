@@ -1,0 +1,22 @@
+.luna-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em;
+    color: var(--dark-blue);
+}
+
+.luna-footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.luna-footer p a {
+    color: var(--dark-blue);
+}
+
+#github {
+    color: var(--dark-blue);
+    font-size: 2em;
+}

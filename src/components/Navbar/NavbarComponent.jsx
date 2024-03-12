@@ -30,6 +30,12 @@ const NavbarComponent = () => {
                             <Nav.Link href="/history">Ιστορικό</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
+
+                    <Navbar.Collapse className="justify-content-end">
+                        <a href="https://github.com/ArchontisKostis/luna-pet-breath-monitor" id="github-repo-icon">
+                            <i className="bi bi-github"></i>
+                        </a>
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
     );
