@@ -1,0 +1,18 @@
+.history-card-header {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    align-items: center;
+}
+
+.delete-history-btn {
+    border-radius: 1em;
+    transition: all 0.3s ease;
+}
+
+.delete-history-btn:hover {
+    opacity: 0.8;
+}
+
+.delete-modal {
+    width: 100vw;
+}
