@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/svg/logo.svg";
 
 import "./LoadingPage.css";
+import {getRandomCatFact} from "../../utils/catFacts.js";
 
 const LoadingPage = () => {
 
@@ -19,7 +20,7 @@ const LoadingPage = () => {
                         Εκκίνηση Εφαρμογής
                     </h3>
                     <p>
-                        <i>Οι γάτες κοιμούνται περίπου το 70% της ζωής τους.</i>
+                        <i>{getRandomCatFact()}</i>
                     </p>
                 </div>
             </div>
