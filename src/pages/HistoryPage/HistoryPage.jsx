@@ -41,11 +41,7 @@ const CountHistoryPage = () => {
                 </Alert>
             )}
 
-            <TimelineChart
-                history={history}
-            />
-
-
+            <TimelineChart history={history}/>
         </div>
     );
 };
