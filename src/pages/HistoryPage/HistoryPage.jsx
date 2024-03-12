@@ -56,14 +56,14 @@ const CountHistoryPage = () => {
                                 </Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">
                                     <i className="bi bi-lungs"> </i>
-                                    Breaths Count: {item.breathsCount}
+                                    Αναπνοές: {item.breathsCount}
                                 </Card.Subtitle>
                                 <Card.Text>
                                     <i className="bi bi-hourglass-split"> </i>
                                     Χρόνος Μέτρησης: {item.countdownTime} " <br/>
                                     <br />
                                     <i className="bi bi-journal-text"> </i>
-                                    Notes: <br/>
+                                    Σημειώσεις: <br/>
 
                                     <i>{item.notes || 'No notes available'}</i>
                                 </Card.Text>
