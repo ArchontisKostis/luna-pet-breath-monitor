@@ -1,5 +1,6 @@
 .new-count-page {
   width: 100%;
+  min-height: 100vh;
   background-color: var(--dark-blue);
   padding: 1em 1em 5em 1em;
   display: flex;
