@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 
 import './TimelineChart.css';
 import {Alert} from "react-bootstrap";
@@ -20,8 +20,9 @@ const TimelineChart = () => {
                 Γράφημα Μετρήσεων
             </h1>
             {history.length > 0 ? (
+                <ResponsiveContainer width="70%" height={500}>
                 <LineChart
-                    width={600}
+                    width={400}
                     height={300}
                     data={history}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -38,6 +39,7 @@ const TimelineChart = () => {
                     <Legend />
                     <Line type="monotone" dataKey="breathsCount" stroke="#01233e" strokeWidth={2} />
                 </LineChart>
+                </ResponsiveContainer>
             ) : (
                 <Alert variant="warning">
                     <Alert.Heading>

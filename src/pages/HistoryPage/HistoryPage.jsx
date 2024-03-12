@@ -88,7 +88,7 @@ const CountHistoryPage = () => {
             />
 
             {/*  Delete Modal  */}
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} className="delete-modal">
                 <Modal.Header closeButton>
                     <Modal.Title>Διαγραφή Εγγραφής</Modal.Title>
                 </Modal.Header>
