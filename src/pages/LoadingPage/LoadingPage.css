@@ -1,0 +1,42 @@
+.loading-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-blue);
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--pure-white);
+}
+
+.loading-content img {
+    width: 10vw;
+    height: 10vw;
+    margin-bottom: 1em;
+}
+
+.pulsate {
+    position: relative;
+    animation: pulsate 1.5s ease-out infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1; /* Lower opacity when smaller */
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
