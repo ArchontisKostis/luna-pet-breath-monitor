@@ -88,14 +88,15 @@ const NewCountPage = () => {
                 <p>
                     {timer}"
                 </p>
+                <div className="timer-btns">
+                    <button className="time-btn" id="increment-timer" onClick={handleIncrement}>
+                        <i className="bi bi-caret-up-fill"> </i>
+                    </button>
 
-                {/*<button className="time-btn" id="increment-timer" onClick={handleIncrement}>*/}
-                {/*    <i className="bi bi-caret-up-fill"> </i>*/}
-                {/*</button>*/}
-
-                {/*<button className="time-btn" id="decrease-timer" onClick={handleDecrement}>*/}
-                {/*    <i className="bi bi-caret-down-fill"> </i>*/}
-                {/*</button>*/}
+                    <button className="time-btn" id="decrease-timer" onClick={handleDecrement}>
+                        <i className="bi bi-caret-down-fill"> </i>
+                    </button>
+                </div>
             </p>
             <div className="breath-btn-container">
                 <button className="heart-button" onClick={handleCountClick}>

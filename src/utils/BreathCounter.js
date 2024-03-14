@@ -15,8 +15,9 @@ class BreathCounter {
         // Counted Time is the total time we measured the breaths in seconds
         // Breaths is the total number of breaths we counted in the counted time
         // To get breaths per minute, we divide the total breaths by the total time in minutes
+        let value = this.breaths / (this.countedTime / 60);
 
-        return (this.breaths * 60) / this.countedTime;
+        return Math.round(value);
     }
 
     getBreathsPerMinute() { return this.breathsPerMinute; }
