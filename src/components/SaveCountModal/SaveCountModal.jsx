@@ -1,17 +1,22 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import BreathCounter from "../../utils/BreathCounter.js";
+import useLocalStorage from "../../hooks/useLocalStorage.js";
 
 const SaveCountModal = ({ show, handleClose, finalCount, today, countdown }) => {
+    let [existingHistory, setExistingHistory] = useLocalStorage('history', []);
+
     const handleSave = () => {
-        // Get existing history from local storage or initialize an empty array
-        const existingHistory = JSON.parse(localStorage.getItem('history')) || [];
         let id = existingHistory.length + 1;
+
+        let breathCounter = new BreathCounter(finalCount, countdown);
+        let breathsPerMinute = breathCounter.calculateBreathsPerMinute();
 
         // Construct the data object
         const data = {
             id: id,
             date: today.toLocaleDateString(),
-            breathsCount: finalCount,
+            breathsCount: breathsPerMinute,
             countdownTime: countdown,
             notes: document.getElementById('notes').value, // Retrieve notes from the textarea
         };
@@ -20,6 +25,7 @@ const SaveCountModal = ({ show, handleClose, finalCount, today, countdown }) => 
         existingHistory.push(data);
 
         // Save the updated history back to local storage
+        setExistingHistory(existingHistory);
         localStorage.setItem('history', JSON.stringify(existingHistory));
 
         // Close the modal

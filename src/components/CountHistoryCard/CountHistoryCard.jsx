@@ -26,6 +26,9 @@ const CountHistoryCard = ({index, item}) => {
 
             // Close the modal
             handleClose();
+
+            // Refresh the page
+            window.location.reload();
         }
     };
 
