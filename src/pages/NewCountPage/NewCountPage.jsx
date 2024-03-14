@@ -87,7 +87,7 @@ const NewCountPage = () => {
         <div className="new-count-page">
             <CountdownTimer timer={timer} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
             <BreathButton count={count} onClick={handleCountClick} />
-            
+
             <SaveCountModal
                 show={show}
                 handleClose={handleClose}
