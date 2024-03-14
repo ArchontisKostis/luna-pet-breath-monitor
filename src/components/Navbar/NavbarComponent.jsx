@@ -25,9 +25,18 @@ const NavbarComponent = () => {
 
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Αρχική</Nav.Link>
-                            <Nav.Link href="/new">Νέα Μέτρηση</Nav.Link>
-                            <Nav.Link href="/history">Ιστορικό</Nav.Link>
+                            <Nav.Link href="/">
+                                <i className="bi bi-house-fill"> </i>
+                                Αρχική
+                            </Nav.Link>
+                            <Nav.Link href="/new">
+                                <i className="bi bi-plus-circle-fill"> </i>
+                                Νέα Μέτρηση
+                            </Nav.Link>
+                            <Nav.Link href="/history">
+                                <i className="bi bi-clock-history"> </i>
+                                Ιστορικό
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
 
