@@ -2,7 +2,6 @@
 import React from 'react';
 
 import './HomePage.css';
-import {Button, Col, Container, Row} from "react-bootstrap";
 
 import {homepage} from '../../assets/data/main.json';
 import TileButton from "../../components/TileButton/TileButton.jsx";
