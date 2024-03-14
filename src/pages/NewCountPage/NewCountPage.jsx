@@ -88,6 +88,11 @@ const NewCountPage = () => {
             <CountdownTimer timer={timer} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
             <BreathButton count={count} onClick={handleCountClick} />
 
+            <a href="/history" className="go-to-history">
+                <i className="bi bi-arrow-right-circle"></i>
+                Ιστορικό Μετρήσεων
+            </a>
+
             <SaveCountModal
                 show={show}
                 handleClose={handleClose}
