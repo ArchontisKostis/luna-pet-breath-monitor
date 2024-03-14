@@ -4,8 +4,10 @@ import TileButton from "../../components/TileButton/TileButton.jsx";
 
 import './NewCountPage.css';
 import SaveCountModal from "../../components/SaveCountModal/SaveCountModal.jsx";
+import CountdownTimer from "../../components/CountdownTimer/CountdownTimer.jsx";
+import BreathButton from "../../components/BreathButton/BreathButton.jsx";
 
-const COUNTDOWN_SECONDS = 2;
+const COUNTDOWN_SECONDS = 30;
 
 const NewCountPage = () => {
     const [count, setCount] = useState(0);
@@ -83,29 +85,9 @@ const NewCountPage = () => {
 
     return (
         <div className="new-count-page">
-            <p className="timer">
-                <i className="bi bi-clock"> </i>
-                <p>
-                    {timer}"
-                </p>
-                <div className="timer-btns">
-                    <button className="time-btn" id="increment-timer" onClick={handleIncrement}>
-                        <i className="bi bi-caret-up-fill"> </i>
-                    </button>
-
-                    <button className="time-btn" id="decrease-timer" onClick={handleDecrement}>
-                        <i className="bi bi-caret-down-fill"> </i>
-                    </button>
-                </div>
-            </p>
-            <div className="breath-btn-container">
-                <button className="heart-button" onClick={handleCountClick}>
-                    <i className="bi bi-lungs-fill">
-                        <p>{count}</p>
-                    </i>
-                </button>
-            </div>
-
+            <CountdownTimer timer={timer} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
+            <BreathButton count={count} onClick={handleCountClick} />
+            
             <SaveCountModal
                 show={show}
                 handleClose={handleClose}
